@@ -25,8 +25,13 @@
                         </button>
                         <a class="navbar-brand" href="#">
                             <img src="<?php echo base_url(); ?>assets/simple_admin/img/logo_header.png" />
+
                         </a>
+
                     </div>
+                    <span class="logout-spn" >
+                        <a href="<?php echo base_url();?>mimin/logout" style="color:#fff;">LOGOUT</a>  
+                    </span>
                 </div>
             </div>
             <!-- /. NAV TOP  -->  
