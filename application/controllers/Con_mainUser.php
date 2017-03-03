@@ -7,11 +7,11 @@
  */
 
 /**
- * Description of Main_menu
+ * Description of Con_user
  *
  * @author cloudthinkbun
  */
-class Main_menu extends CI_Controller{
+class Con_user extends CI_Controller{
     public function __construct() {
         parent::__construct();
     }

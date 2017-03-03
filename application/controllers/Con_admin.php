@@ -7,11 +7,11 @@
  */
 
 /**
- * Description of Main_admin
+ * Description of Con_admin
  *
  * @author cloudthinkbun
  */
-class Main_admin extends CI_Controller {
+class Con_admin extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -67,7 +67,7 @@ class Main_admin extends CI_Controller {
     /*pulsa*/
     function my_pulsa(){
         $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
-        $datacontent['my_content'] = $this->load->view('my_admin/mimin_home', '', TRUE);
+        $datacontent['my_content'] = $this->load->view('my_admin/mimin_pulsa', '', TRUE);
         $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
         $data['footer'] = $this->load->view('template/footer', '', TRUE);
         $this->load->view('template', $data);
