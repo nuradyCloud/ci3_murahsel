@@ -59,6 +59,8 @@ $route['mimin/mimin_home'] = 'con_admin/admin_home';
 $route['mimin/logout'] = 'con_admin/admin_logout';
 /*route admin pulsa*/
 $route['mimin/pulsa'] = 'con_admin/my_pulsa';
+$route['mimin/pulsa/edit/(:any)'] = 'con_admin/pulsa_edit/$1';
+$route['mimin/pulsa/delete/(:any)'] = 'con_admin/pulsa_delete/$1';
 
 /*route user*/
 $route['pulsa_prabayar'] = 'con_user/pulsa';

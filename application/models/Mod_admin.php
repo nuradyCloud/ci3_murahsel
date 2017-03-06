@@ -11,10 +11,13 @@
  *
  * @author cloudthinkbun
  */
-class mod_admin extends CI_Model{
+class Mod_admin extends CI_Model{
     
-    function select_userAdmin(){
-        
+    function numrow_voucher(){
+        return $this->db->count_all('tm_voucher');         
     }
     
+    function select_voucher(){
+        return $this->db->get('tm_voucher')->result_array();
+    }
 }

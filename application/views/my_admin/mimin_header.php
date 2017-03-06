@@ -12,6 +12,20 @@
         <link href="<?php echo base_url(); ?>assets/simple_admin/css/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        
+        <!--ADD JEASYUI-->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/easyui_1.5.1/themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/easyui_1.5.1/themes/icon.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/easyui_1.5.1/demo.css">
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/easyui_1.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/easyui_1.5.1/jquery.easyui.min.js"></script>
+        
+        <!--datatables-->
+        <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/datatables_1.10.13/css/dataTables.bootstrap.min.css">
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>assets/js_css/jquery-1.12.4.js"></script>
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>assets/datatables_1.10.13/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>assets/datatables_1.10.13/js/dataTables.bootstrap.min.js"></script>
     </head>
     <body>
         <div id="wrapper">

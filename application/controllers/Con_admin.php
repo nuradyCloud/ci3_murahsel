@@ -15,6 +15,7 @@ class Con_admin extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('mod_admin');
     }
 
     public function admin_home() {
@@ -67,7 +68,9 @@ class Con_admin extends CI_Controller {
     /*pulsa*/
     function my_pulsa(){
         $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
-        $datacontent['my_content'] = $this->load->view('my_admin/mimin_pulsa', '', TRUE);
+        $my_content['rownum_voucher'] = $this->mod_admin->numrow_voucher();
+        $my_content['voucher_list'] = $this->mod_admin->select_voucher();
+        $datacontent['my_content'] = $this->load->view('my_admin/mimin_pulsa',$my_content, TRUE);
         $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
         $data['footer'] = $this->load->view('template/footer', '', TRUE);
         $this->load->view('template', $data);
