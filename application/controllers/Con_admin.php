@@ -65,15 +65,40 @@ class Con_admin extends CI_Controller {
         }
     }
     
-    /*pulsa*/
-    function my_pulsa(){
+    /*voucher*/
+    function my_voucher(){
         $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
+        $my_content['voucher_delete']=$this->session->flashdata('voucher_delete'); 
+        $my_content['voucher_tambah']=$this->session->flashdata('pesan_tambah'); 
         $my_content['rownum_voucher'] = $this->mod_admin->numrow_voucher();
         $my_content['voucher_list'] = $this->mod_admin->select_voucher();
-        $datacontent['my_content'] = $this->load->view('my_admin/mimin_pulsa',$my_content, TRUE);
+        $datacontent['my_content'] = $this->load->view('my_admin/mimin_voucher',$my_content, TRUE);
         $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
         $data['footer'] = $this->load->view('template/footer', '', TRUE);
         $this->load->view('template', $data);
+    }
+    
+    function voucher_tambah(){
+        $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
+        $datacontent['my_content'] = $this->load->view('my_admin/voucher_tambah','', TRUE);
+        $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
+        $data['footer'] = $this->load->view('template/footer', '', TRUE);
+        $this->load->view('template', $data);
+    }
+    
+    function save_tambah(){
+        $id_voucher     = $this->input->post('id_voucher');
+        $nama_voucher   = $this->input->post('nama_voucher');
+        $this->mod_admin->tambah_voucher($id_voucher,$nama_voucher);
+        $this->session->set_flashdata('pesan_tambah', 'Data Master Voucher Telah Berhasil Disimpan.');
+        redirect('mimin/voucher');
+    }
+    
+    function voucher_delete(){
+        $id_voucher= end($this->uri->segment_array());
+        $this->mod_admin->delete_voucher($id_voucher);
+        $this->session->set_flashdata('voucher_delete','Data Voucher berhasil di hapus');
+        redirect('mimin/voucher');
     }
 
 }

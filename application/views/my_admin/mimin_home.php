@@ -7,7 +7,7 @@
 <div class="row text-center pad-top">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">
-            <a href="<?php echo base_url()?>mimin/pulsa" >
+            <a href="<?php echo base_url()?>mimin/voucher" >
                 <i class="fa fa-mobile fa-5x"></i>
                 <h4>Management Voucher Isi Ulang</h4>
             </a>

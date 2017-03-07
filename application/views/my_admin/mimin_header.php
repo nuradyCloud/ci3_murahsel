@@ -21,9 +21,9 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/easyui_1.5.1/jquery.easyui.min.js"></script>
         
         <!--datatables-->
-        <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+        <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js_css/bootstrap.min.css">-->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/datatables_1.10.13/css/dataTables.bootstrap.min.css">
-        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>assets/js_css/jquery-1.12.4.js"></script>
+        <!--<script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>assets/js_css/jquery-1.12.4.js"></script>-->
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>assets/datatables_1.10.13/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>assets/datatables_1.10.13/js/dataTables.bootstrap.min.js"></script>
     </head>
@@ -37,7 +37,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="<?php echo base_url();?>mimin/mimin_home">
                             <img src="<?php echo base_url(); ?>assets/simple_admin/img/logo_header.png" />
 
                         </a>

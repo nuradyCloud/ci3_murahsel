@@ -57,10 +57,12 @@ $route['translate_uri_dashes'] = FALSE;
 $route['mimin'] = 'con_admin/admin_login';
 $route['mimin/mimin_home'] = 'con_admin/admin_home';
 $route['mimin/logout'] = 'con_admin/admin_logout';
+
 /*route admin pulsa*/
-$route['mimin/pulsa'] = 'con_admin/my_pulsa';
-$route['mimin/pulsa/edit/(:any)'] = 'con_admin/pulsa_edit/$1';
-$route['mimin/pulsa/delete/(:any)'] = 'con_admin/pulsa_delete/$1';
+$route['mimin/voucher'] = 'con_admin/my_voucher';
+$route['mimin/voucher/tambah'] = 'con_admin/voucher_tambah';
+$route['mimin/voucher/save_tambah'] = 'con_admin/save_tambah';
+$route['mimin/voucher/delete/(:any)'] = 'con_admin/voucher_delete/$1';
 
 /*route user*/
 $route['pulsa_prabayar'] = 'con_user/pulsa';
