@@ -64,6 +64,11 @@ $route['mimin/voucher/tambah'] = 'con_admin/voucher_tambah';
 $route['mimin/voucher/save_tambah'] = 'con_admin/save_tambah';
 $route['mimin/voucher/delete/(:any)'] = 'con_admin/voucher_delete/$1';
 
+/*route admin pulsa*/
+$route['mimin/nominal/tambah'] = 'con_admin/nominal_tambah';
+$route['mimin/nominal/save_tambah'] = 'con_admin/save_nominal_tambah';
+$route['mimin/nominal/delete/(:any)'] = 'con_admin/nominal_delete/$1';
+
 /*route user*/
 $route['pulsa_prabayar'] = 'con_user/pulsa';
 $route['upload_bukti'] = 'con_user/bukti_bayar';

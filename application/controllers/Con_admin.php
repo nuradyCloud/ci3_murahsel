@@ -68,8 +68,12 @@ class Con_admin extends CI_Controller {
     /*voucher*/
     function my_voucher(){
         $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
+        $my_content['nominal_delete']=$this->session->flashdata('nominal_delete'); 
+        $my_content['nominal_tambah']=$this->session->flashdata('nominal_tambah'); 
+        $my_content['rownum_nominal'] = $this->mod_admin->numrow_nominal();
+        $my_content['nominal_list'] = $this->mod_admin->select_nominal();
         $my_content['voucher_delete']=$this->session->flashdata('voucher_delete'); 
-        $my_content['voucher_tambah']=$this->session->flashdata('pesan_tambah'); 
+        $my_content['voucher_tambah']=$this->session->flashdata('voucher_tambah'); 
         $my_content['rownum_voucher'] = $this->mod_admin->numrow_voucher();
         $my_content['voucher_list'] = $this->mod_admin->select_voucher();
         $datacontent['my_content'] = $this->load->view('my_admin/mimin_voucher',$my_content, TRUE);
@@ -90,7 +94,7 @@ class Con_admin extends CI_Controller {
         $id_voucher     = $this->input->post('id_voucher');
         $nama_voucher   = $this->input->post('nama_voucher');
         $this->mod_admin->tambah_voucher($id_voucher,$nama_voucher);
-        $this->session->set_flashdata('pesan_tambah', 'Data Master Voucher Telah Berhasil Disimpan.');
+        $this->session->set_flashdata('voucher_tambah', 'Data Master Voucher Telah Berhasil Disimpan.');
         redirect('mimin/voucher');
     }
     
@@ -98,6 +102,31 @@ class Con_admin extends CI_Controller {
         $id_voucher= end($this->uri->segment_array());
         $this->mod_admin->delete_voucher($id_voucher);
         $this->session->set_flashdata('voucher_delete','Data Voucher berhasil di hapus');
+        redirect('mimin/voucher');
+    }
+    
+    //nominal
+    function nominal_tambah(){
+        $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
+        $datacontent['my_content'] = $this->load->view('my_admin/nominal_tambah','', TRUE);
+        $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
+        $data['footer'] = $this->load->view('template/footer', '', TRUE);
+        $this->load->view('template', $data);
+    }
+    
+    function save_nominal_tambah(){
+        $id_nominal     = $this->input->post('id_nominal');
+        $nama_nominal   = $this->input->post('nama_nominal');
+        $value_nominal   = $this->input->post('value_nominal');
+        $this->mod_admin->tambah_nominal($id_nominal,$nama_nominal,$value_nominal);
+        $this->session->set_flashdata('nominal_tambah', 'Data Master Nominal Telah Berhasil Disimpan.');
+        redirect('mimin/voucher');
+    }
+    
+    function nominal_delete(){
+        $id_nominal= end($this->uri->segment_array());
+        $this->mod_admin->delete_nominal($id_nominal);
+        $this->session->set_flashdata('nominal_delete','Data Nominal berhasil di hapus');
         redirect('mimin/voucher');
     }
 
