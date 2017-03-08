@@ -51,7 +51,7 @@ if ($nominal_delete != NULL) {
 <div class="row text-center pad-top">
     <div class="easyui-tabs">
         <div title="Master Voucher" style="padding:10px">
-            <p><a href="<?php echo base_url();?>mimin/mimin_home">Beranda</a> / <a href="<?php echo base_url();?>mimin/voucher/tambah">Tambah Data</a></p>
+            <p><a href="<?php echo base_url();?>mimin">Beranda</a> / <a href="<?php echo base_url();?>mimin/voucher/tambah">Tambah Data</a></p>
             <hr>            
             <b>DATA MASTER VOUCHER</b>
             <table class="table table-striped table-bordered" id="voucher_list" width="100%" cellspacing="0">

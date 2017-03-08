@@ -21,52 +21,45 @@ class Con_admin extends CI_Controller {
     public function admin_home() {
         if($this->session->userdata('logged_in')){
             $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
-            $datacontent['my_content'] = $this->load->view('my_admin/mimin_home', '', TRUE);
+            $my_content['info_admin']=$this->session->flashdata('success_message');
+            $datacontent['my_content'] = $this->load->view('my_admin/mimin_home',$my_content, TRUE);
             $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
             $data['footer'] = $this->load->view('template/footer', '', TRUE);
             $this->load->view('template', $data);
         }else{
-            
-        }
-        
-//        if ($this->session->userdata('logged_in')) {
-//            $data['header'] = $this->load->view('template/cst_admin/header', '', TRUE);
-//            $datacontent['content1'] = $this->load->view('home', '', TRUE);
-//            $data['content'] = $this->load->view('template/cst_admin/content', $datacontent, TRUE);
-//            $data['footer'] = $this->load->view('template/cst_admin/footer', '', TRUE);
-//            $this->load->view('template', $data);
-//        } else {
-//            $mycontent['message2'] = $this->session->flashdata('message2');
-//            $this->load->view('login', $mycontent);
-//        }
+            $my_content['error_admin']=$this->session->flashdata('error_message');
+            $my_content['success_admin']=$this->session->flashdata('success_message');
+            $this->load->view('my_admin/login',$my_content);
+        }       
         
     }
 
     function admin_login() {
         $email = $this->input->post('email');
-        $user_name = $this->input->post('user_name');
         $pass = $this->input->post('password');
 
-        $dataMinuser = $this->mod_admin->getMinuser($user_name,$email,$pass);
+        $dataMinuser = $this->mod_admin->getMinuser($email,$pass);
         if (!empty($dataMinuser)) {
             $this->session->set_userdata('logged_in', TRUE);
             $this->session->set_userdata('email', $dataMinuser['user_email']);
             $this->session->set_userdata('username', $dataMinuser['user_name']);
             $this->session->set_userdata('role', $dataMinuser['status']);
-
-            redirect('mimin/mimin_home');
+            $this->session->set_flashdata('success_message', 'Success Login. Welcome '.$this->session->userdata('username').' as '.$this->session->userdata('role'));
+            redirect('mimin');
         } else {
-            $this->session->set_flashdata('message2', 'Email and Password is wrong.');
+            $this->session->set_flashdata('error_message', 'Email and Password is wrong.');
             redirect('mimin');
         }
     }
 
     function admin_logout() {
         if ($this->session->userdata('logged_in')) {
+            $this->mod_admin->update_minuser($this->session->userdata('username'));
             $this->session->sess_destroy();
-            redirect('mimin/mimin_home');
+            $this->session->set_flashdata('success_message', 'You has been logout.');
+            redirect('mimin');
         } else {
-            $this->session->set_flashdata('message2', 'Email and Password is wrong.');
+            $this->session->set_flashdata('error_message', 'You must login!');
         }
     }
     

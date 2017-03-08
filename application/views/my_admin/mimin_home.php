@@ -4,6 +4,16 @@
     </div>
 </div>              
 <hr />
+<?php
+if ($info_admin != NULL) {
+    ?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        <?php echo $info_admin; ?>
+    </div>
+    <?php
+}
+?>
 <div class="row text-center pad-top">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">

@@ -37,7 +37,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<?php echo base_url();?>mimin/mimin_home">
+                        <a class="navbar-brand" href="<?php echo base_url();?>mimin">
                             <img src="<?php echo base_url(); ?>assets/simple_admin/img/logo_header.png" />
 
                         </a>

@@ -5,7 +5,7 @@
 </div>              
 <hr />
 <div class="row">
-    <p><a href="<?php echo base_url(); ?>mimin/mimin_home">Beranda</a> / <a href="<?php echo base_url(); ?>mimin/nominal/tambah">Tambah Data</a></p>
+    <p><a href="<?php echo base_url(); ?>mimin">Beranda</a> / <a href="<?php echo base_url(); ?>mimin/nominal/tambah">Tambah Data</a></p>
     <hr>
     <b>TAMBAH DATA NOMINAL</b>
     <form method="POST" action="<?php echo base_url()?>mimin/nominal/save_tambah">

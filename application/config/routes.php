@@ -54,8 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /*route admin*/
-$route['mimin'] = 'con_admin/admin_login';
-$route['mimin/mimin_home'] = 'con_admin/admin_home';
+$route['mimin'] = 'con_admin/admin_home';
+$route['mimin/login'] = 'con_admin/admin_login';
 $route['mimin/logout'] = 'con_admin/admin_logout';
 
 /*route admin pulsa*/

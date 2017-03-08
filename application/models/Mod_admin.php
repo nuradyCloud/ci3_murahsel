@@ -93,9 +93,8 @@ class Mod_admin extends CI_Model{
         return $this->db->delete('tm_minuser',array('user_name'=>$user_name));
     }
     
-    function getMinuser($user_name,$email,$pass){
+    function getMinuser($email,$pass){
         $dataUser=array(
-            'user_name'     =>$user_name,
             'user_email'    =>$email,
             'password'      => md5($pass)
         );
