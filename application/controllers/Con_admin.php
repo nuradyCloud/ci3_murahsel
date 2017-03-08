@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,11 +19,16 @@ class Con_admin extends CI_Controller {
     }
 
     public function admin_home() {
-        $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
-        $datacontent['my_content'] = $this->load->view('my_admin/mimin_home', '', TRUE);
-        $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
-        $data['footer'] = $this->load->view('template/footer', '', TRUE);
-        $this->load->view('template', $data);
+        if($this->session->userdata('logged_in')){
+            $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
+            $datacontent['my_content'] = $this->load->view('my_admin/mimin_home', '', TRUE);
+            $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
+            $data['footer'] = $this->load->view('template/footer', '', TRUE);
+            $this->load->view('template', $data);
+        }else{
+            
+        }
+        
 //        if ($this->session->userdata('logged_in')) {
 //            $data['header'] = $this->load->view('template/cst_admin/header', '', TRUE);
 //            $datacontent['content1'] = $this->load->view('home', '', TRUE);
@@ -39,20 +44,20 @@ class Con_admin extends CI_Controller {
 
     function admin_login() {
         $email = $this->input->post('email');
+        $user_name = $this->input->post('user_name');
         $pass = $this->input->post('password');
-        $pass_input = md5($pass);
 
-        $data = $this->mod_homepage->getPasswordAndRole($email, $pass_input);
-        if (!empty($data)) {
+        $dataMinuser = $this->mod_admin->getMinuser($user_name,$email,$pass);
+        if (!empty($dataMinuser)) {
             $this->session->set_userdata('logged_in', TRUE);
-            $this->session->set_userdata('email', $data['email']);
-            $this->session->set_userdata('username', $data['username']);
-            $this->session->set_userdata('role', $data['role']);
+            $this->session->set_userdata('email', $dataMinuser['user_email']);
+            $this->session->set_userdata('username', $dataMinuser['user_name']);
+            $this->session->set_userdata('role', $dataMinuser['status']);
 
-            redirect('home');
+            redirect('mimin/mimin_home');
         } else {
             $this->session->set_flashdata('message2', 'Email and Password is wrong.');
-            redirect('home');
+            redirect('mimin');
         }
     }
 
@@ -128,6 +133,44 @@ class Con_admin extends CI_Controller {
         $this->mod_admin->delete_nominal($id_nominal);
         $this->session->set_flashdata('nominal_delete','Data Nominal berhasil di hapus');
         redirect('mimin/voucher');
+    }
+    
+    //useradmin
+    function minuser_list(){
+        $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
+        $my_content['minuser_tambah']=$this->session->flashdata('minuser_tambah'); 
+        $my_content['minuser_delete']=$this->session->flashdata('minuser_delete'); 
+        $my_content['rownum_minuser'] = $this->mod_admin->numrow_minuser();
+        $my_content['minuser_list'] = $this->mod_admin->select_minuser();
+        $datacontent['my_content'] = $this->load->view('my_admin/mimin_list',$my_content, TRUE);
+        $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
+        $data['footer'] = $this->load->view('template/footer', '', TRUE);
+        $this->load->view('template', $data);
+    }
+    
+    function minuser_tambah(){
+        $data['header'] = $this->load->view('my_admin/mimin_header', '', TRUE);
+        $datacontent['my_content'] = $this->load->view('my_admin/minuser_tambah','', TRUE);
+        $data['content'] = $this->load->view('template/content', $datacontent, TRUE);
+        $data['footer'] = $this->load->view('template/footer', '', TRUE);
+        $this->load->view('template', $data);
+    }
+    
+    function save_minuser_tambah(){
+        $user_email     = $this->input->post('user_email');
+        $user_name   = $this->input->post('user_name');
+        $password   = $this->input->post('password');
+        $status   = $this->input->post('status');
+        $this->mod_admin->tambah_minuser($user_name,$user_email,$password,$status);
+        $this->session->set_flashdata('minuser_tambah', 'Data Admin Telah Berhasil Disimpan.');
+        redirect('mimin/admin_user/list');
+    }
+    
+    function minuser_delete(){
+        $user_name= end($this->uri->segment_array());
+        $this->mod_admin->delete_minuser($user_name);
+        $this->session->set_flashdata('minuser_delete','Data Admin berhasil di hapus');
+        redirect('mimin/admin_user/list');
     }
 
 }
