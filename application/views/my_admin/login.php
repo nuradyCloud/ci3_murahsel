@@ -30,8 +30,8 @@
             ?>
             <form class="form-signin" method="POST" action="<?php echo base_url();?>mimin/login">       
                 <h2 class="form-signin-heading">Please login</h2>
-                <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
-                <input type="password" class="form-control" name="password" placeholder="Password" required=""/>                
+                <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" maxlength="30"/>
+                <input type="password" class="form-control" name="password" placeholder="Password" required="" maxlength="25"/>                
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
             </form>
         </div>

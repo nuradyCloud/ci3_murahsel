@@ -8,7 +8,7 @@
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">
             <a href="<?php echo base_url()?>pulsa_prabayar" >
-                <i class="fa fa-android fa-5x"></i>
+                <i class="fa fa-mobile fa-5x"></i>
                 <h4>Voucher Isi Ulang</h4>
             </a>
         </div>

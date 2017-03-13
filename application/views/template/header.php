@@ -12,6 +12,8 @@
         <link href="<?php echo base_url(); ?>assets/simple_admin/css/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
         <div id="wrapper">

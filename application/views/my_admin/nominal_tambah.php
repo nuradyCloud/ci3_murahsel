@@ -13,7 +13,7 @@
             <tr>
                 <td>ID Nominal</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td><input type="text" maxlength="1" required="" size="1" name="id_nominal"/></td>
+                <td><input type="text" maxlength="1" required="" size="1" name="id_nominal" style="text-transform: uppercase"/></td>
             </tr>
             <tr>
                 <td>Nama Nominal</td>

@@ -82,7 +82,7 @@ class Mod_admin extends CI_Model{
         $ipLocation= $this->input->ip_address();
         $lastLogin= date("Y-m-d H:i:s");
         $dataMinuser= array(
-            'ip_location'   =>$$ipLocation,
+            'ip_location'   =>$ipLocation,
             'last_login'    =>$lastLogin
         );
         $this->db->where('user_name',$user_name);

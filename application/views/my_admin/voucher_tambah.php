@@ -13,12 +13,12 @@
             <tr>
                 <td>ID Voucher</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td><input type="text" maxlength="1" required="" size="1" name="id_voucher"/></td>
+                <td><input type="text" maxlength="1" required="" size="1" name="id_voucher" style="text-transform: uppercase"/></td>
             </tr>
             <tr>
                 <td>Nama Voucher</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td><input type="text" maxlength="10" required="" size="10" name="nama_voucher"/></td>
+                <td><input type="text" maxlength="10" required="" size="10" name="nama_voucher" style="text-transform: uppercase"/></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>

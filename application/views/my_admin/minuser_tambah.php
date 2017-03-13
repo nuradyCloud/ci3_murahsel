@@ -18,7 +18,7 @@
             <tr>
                 <td>Nama Admin</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td><input type="text" maxlength="10" required="" size="10" name="user_name"/></td>
+                <td><input type="text" maxlength="10" required="" size="10" name="user_name" style="text-transform: uppercase"/></td>
             </tr>
             <tr>
                 <td>Password</td>
