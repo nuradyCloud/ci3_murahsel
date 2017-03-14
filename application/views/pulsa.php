@@ -17,7 +17,22 @@
             <td>Jenis Voucher</td>
             <td>&nbsp;:&nbsp;</td>
             <td>
-                <input type="text" name="my_voucher" id="voucher"/>
+                <select name="my_voucher" id="voucher" required="">
+                    <?php foreach ($my_voucher as $voucher) { ?>
+                        <?php echo '<option value="' . $voucher["id_voucher"] . '">' . $voucher["nama_voucher"] . '</option>'; ?>
+                    <?php } ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Nominal Voucher</td>
+            <td>&nbsp;:&nbsp;</td>
+            <td>
+                <select name="my_nominal" id="voucher" required="">
+                    <?php foreach ($my_nominal as $nominal) { ?>
+                        <?php echo '<option value="' . $nominal["id_nominal"] . '">' . $nominal["name_nominal"] . '</option>'; ?>
+                    <?php } ?>
+                </select>
             </td>
         </tr>
         <tr>
@@ -27,13 +42,6 @@
                 <input type="text" name="my_number" id="number" onkeypress="return isNumber(event);" maxlength="15" size="15" required=""/>
             </td>
         </tr>
-        <tr>
-            <td>Nominal Voucher</td>
-            <td>&nbsp;:&nbsp;</td>
-            <td>
-                
-            </td>
-        </tr>        
 <!--        <tr>
             <td>&nbsp;</td>
             <td></td>

@@ -75,6 +75,8 @@ $route['mimin/admin_user/tambah'] = 'con_admin/minuser_tambah';
 $route['mimin/admin_user/save_tambah'] = 'con_admin/save_minuser_tambah';
 $route['mimin/admin_user/delete/(:any)'] = 'con_admin/minuser_delete/$1';
 
-/*route user*/
+/*route user pulsa*/
 $route['pulsa_prabayar'] = 'con_user/pulsa';
+$route['pulsa_prabayar/save'] = 'con_user/save_pulsa';
+
 $route['upload_bukti'] = 'con_user/bukti_bayar';
