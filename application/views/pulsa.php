@@ -4,7 +4,7 @@
     </div>
 </div>              
 <hr />
-<form name="my_form" action="#" method="POST">
+<form name="my_form" action="<?php echo base_url();?>pulsa_prabayar/save" method="POST">
     <table>
         <tr>
             <td>Email</td>
