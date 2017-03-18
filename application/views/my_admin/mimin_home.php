@@ -36,7 +36,7 @@ if ($info_admin != NULL) {
     if ($this->session->userdata('role') == "Super Admin") {
         echo'<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-6">';
         echo '<div class = "div-square">';    
-        echo '<a href = "<?php echo base_url()?>mimin/admin_user/list" >';    
+        echo '<a href = "'.base_url().'mimin/admin_user/list" >';        
         echo '<i class = "fa fa-user fa-5x"></i><h4>Management User Admin</h4></a></div></div>';            
     }else{
         echo '&nbsp;';

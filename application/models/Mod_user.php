@@ -59,9 +59,9 @@ class Mod_user extends CI_Model{
             $this->db->insert('trx_kode',$dataKode);
         }else{
             $jmlKode2=$getCodecount["code_count"]+1;
-            $idTrx2=$id_pulsa.$jmlKode2;
+            $idTrx=$id_pulsa.$jmlKode2;
             $dataPulsa2=array(
-                'id_pulsa'          =>$idTrx2,
+                'id_pulsa'          =>$idTrx,
                 'unique_code'       =>$unique_code,
                 'email_user'        =>$email,
                 'id_voucher'        =>$id_voucher,
@@ -76,6 +76,7 @@ class Mod_user extends CI_Model{
             $this->db->set('code_count',$jmlKode2);
             $this->db->where('id_code',$getCode["id_code"]);
             $this->db->update('trx_kode');
-        }        
+        }
+        return $idTrx;
     }
 }
