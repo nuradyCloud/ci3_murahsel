@@ -77,6 +77,6 @@ class Mod_user extends CI_Model{
             $this->db->where('id_code',$getCode["id_code"]);
             $this->db->update('trx_kode');
         }
-        return $idTrx;
+//        return $idTrx;
     }
 }

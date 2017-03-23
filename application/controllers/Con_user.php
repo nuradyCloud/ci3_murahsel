@@ -66,7 +66,7 @@ class Con_user extends CI_Controller{
         $message="Transaksi ID : ".$id_trx."\nKode Unik : ".$unique_code."\nSilahkan melakukan pembayaran untuk tahap selanjutnya ke rekening ini :";
         $this->email->set_newline("\r\n");
         $this->email->from('nurady.pamungkas@gmail','Fast Transaction Murah Selular');
-//        $recipient= array('ady.xcloud7@gmail.com','imammorati@gmail.com','hendisantika@gmail.com');//approver
+//        $recipient= array('ady.xcloud7@gmail.com');
         $this->email->to($email);// change it to yours
 //        $this->email->cc($recipient);
         $this->email->subject('Fast Transaction Murah Selular['.$id_trx.']');
