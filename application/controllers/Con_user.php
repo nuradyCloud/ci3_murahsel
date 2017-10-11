@@ -16,18 +16,6 @@ class Con_user extends CI_Controller{
         parent::__construct();
         $this->load->model('mod_admin');
         $this->load->model('mod_user');
-        $this->load->library('email');
-        $config = Array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'smtp.googlemail.com',
-            'smtp_port' => 465,
-            'smtp_user' => 'nurady.pamungkas@gmail.com',
-            'smtp_pass' => 'nurady@099603',
-            'mailtype' => 'html',
-            'charset' => 'iso-8859-1'
-        );
-        $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
     }
     
     function index(){
@@ -62,20 +50,7 @@ class Con_user extends CI_Controller{
         $last_update= date("Y-m-d H:i:s");        
         $id_trx=$this->mod_user->insert_trxPulsa($id_pulsa,$unique_code,$email,$id_voucher,$id_nominal,$nomer_hp,
                             $total_bayar,$status,$last_update);
-        /*send mail to recipient*/
-        $message="Transaksi ID : ".$id_trx."\nKode Unik : ".$unique_code."\nSilahkan melakukan pembayaran untuk tahap selanjutnya ke rekening ini :";
-        $this->email->set_newline("\r\n");
-        $this->email->from('nurady.pamungkas@gmail','Fast Transaction Murah Selular');
-//        $recipient= array('ady.xcloud7@gmail.com');
-        $this->email->to($email);// change it to yours
-//        $this->email->cc($recipient);
-        $this->email->subject('Fast Transaction Murah Selular['.$id_trx.']');
-        $this->email->message($message);
-        if (!$this->email->send()) {
-            show_error($this->email->print_debugger());
-        } else {
-            $this->session->set_flashdata('success_pulsa', 'Silahkan check inbox email anda untuk melanjutkan pembayaran!');
-        }
+        $this->session->set_flashdata('success_pulsa', 'Silahkan check inbox email anda untuk melanjutkan pembayaran!');
         redirect(base_url());
     }
 }

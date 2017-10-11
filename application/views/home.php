@@ -33,4 +33,13 @@ if ($info_pulsa != NULL) {
             </a>
         </div>
     </div>
+    
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+        <div class="div-square">
+            <a href="<?php echo base_url()?>cari_status" >
+                <i class="fa fa-search fa-5x"></i>
+                <h4>Status Transaksi</h4>
+            </a>
+        </div>
+    </div>
 </div>
